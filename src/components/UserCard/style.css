@@ -1,0 +1,55 @@
+.user-card {
+    width: 400px;
+    height: 300px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-card-user-information {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-card-user-information-picture-and-name {
+    display: flex;
+    align-items: center;
+}
+
+.user-card-user-information-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.user-card-user-information-picture img {
+    height: 100%;
+    border-radius: 100%;
+}
+
+.user-card-user-information-user-name-spacing {
+    padding-left: 10px;
+}
+
+.user-card-user-opinion {
+    text-align: center;
+    color: #3d4849;
+}
+
+.user-card-user-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.user-card-user-link a {
+    text-decoration: none;
+    color: #3483fa;
+}

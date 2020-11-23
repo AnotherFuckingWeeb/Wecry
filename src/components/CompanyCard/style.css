@@ -1,0 +1,71 @@
+.company-card {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.company-card-logo-container {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 300px;
+    height: 200px;
+}
+
+.company-card-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.company-card-logo img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.company-card-wallpaper{
+    width: 100%;
+    height: 100px;
+}
+
+.company-card-wallpaper img {
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.company-card-name {
+    font-size: 18px;
+    padding-top: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.company-card-opinion {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    font-size: 15px;
+    margin-bottom: 60px;
+    color: #3d4849;
+}
+
+.company-card-link-container {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.company-card-link-container a {
+    text-decoration: none;
+    color: #3483fa;
+}
