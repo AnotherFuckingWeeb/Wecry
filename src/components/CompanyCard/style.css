@@ -3,6 +3,19 @@
     height: 400px;
     background-color: white;
     border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+    0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12),
+    0 8px 8px rgba(0,0,0,0.12);
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(0.9); 
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(0.9); 
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(0.9);
+    transition: all 300ms ease-in;
+    transform: scale(0.9);
 }
 
 .company-card-logo-container {
@@ -68,4 +81,15 @@
 .company-card-link-container a {
     text-decoration: none;
     color: #3483fa;
+}
+
+.company-card:hover {
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(1);   
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 300ms ease-in;
+    transform: scale(1);
 }

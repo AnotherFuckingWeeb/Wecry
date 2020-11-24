@@ -1,13 +1,25 @@
 .user-card {
     width: 400px;
     height: 300px;
-    border: 2px solid lightgray;
     border-radius: 5px;
     background-color: white;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+    0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12),
+    0 8px 8px rgba(0,0,0,0.12);
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(0.9); 
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(0.9); 
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(0.9);
+    transition: all 300ms ease-in;
+    transform: scale(0.9);
 }
 
 .user-card-user-information {
@@ -52,4 +64,15 @@
 .user-card-user-link a {
     text-decoration: none;
     color: #3483fa;
+}
+
+.user-card:hover {
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(1);   
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 300ms ease-in;
+    transform: scale(1);
 }

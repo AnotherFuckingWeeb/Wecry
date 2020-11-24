@@ -43,6 +43,19 @@
     color: #5f5f79;
 }
 
+.home-navbar-nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #ffeb3b;
+}
+
+.home-navbar-nav a:hover::after {
+    width: 100%;
+    transition: width .5s;
+}
+
 .section {
     padding-bottom: 50px;
 }
