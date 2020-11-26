@@ -38,6 +38,6 @@
     color: white;
 }
 
-.account-choice-button:hover .sign-up-button-description-icon {
+.account-choice-button:hover .account-choice-button-description-icon {
     border: 2px solid white;
 }

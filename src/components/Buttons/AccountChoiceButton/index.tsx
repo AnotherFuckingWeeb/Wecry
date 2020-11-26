@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 import { IAccountChoiceButtonProps } from './AccountChoiceButtonPropsInterface'
+import './style.css'
 
 
 export const AccountChoiceButton = (props: IAccountChoiceButtonProps) : JSX.Element => {
