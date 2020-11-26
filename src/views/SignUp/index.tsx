@@ -4,6 +4,7 @@ import { faUsers, faBriefcase, faLongArrowAltRight } from '@fortawesome/free-sol
 import { Images } from '../../assets/images';
 import { ISignUpProps } from './SignUpProps'
 import { ISignUpState } from './SignUpState'
+import { AccountChoiceButton } from '../../components/Buttons/AccountChoiceButton'
 import './style.css'
 
 class SignUp extends React.Component<ISignUpProps, ISignUpState> {
@@ -35,31 +36,9 @@ class SignUp extends React.Component<ISignUpProps, ISignUpState> {
                     <div className='sign-up-description' >
                         <p>Choose the type of account you want to create</p>
                     </div>
-                    <div className='sign-up-buttons-container' >
-                        <div className='sign-up-button'>
-                            <div className='sign-up-button-description-container'>
-                                <div className='sign-up-button-description-icon' >
-                                    <FontAwesomeIcon icon={faUsers} size='lg' />
-                                </div>
-                                <div className='sign-up-button-description' >
-                                    <h1>User Account</h1>
-                                    <p>a simple user account</p>
-                                </div>
-                            </div>
-                            <FontAwesomeIcon icon={faLongArrowAltRight} size='lg' /> 
-                        </div>
-                        <div className='sign-up-button'>
-                            <div className='sign-up-button-description-container'>
-                                <div className='sign-up-button-description-icon' >
-                                    <FontAwesomeIcon icon={faBriefcase} size='lg' />
-                                </div>
-                                <div className='sign-up-button-description' >
-                                    <h1>Company Account</h1>
-                                    <p>a company that sells certain products</p>
-                                </div>
-                            </div>
-                            <FontAwesomeIcon icon={faLongArrowAltRight} size='lg' /> 
-                        </div>
+                    <div className='sign-up-buttons-container'>
+                        <AccountChoiceButton title='User Account' description='a simple user account' icon={faUsers}  />
+                        <AccountChoiceButton title='Company Account' description='a company that sells certain product' icon={faBriefcase}  />
                     </div>
                 </section>
             </main>
