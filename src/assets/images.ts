@@ -4,6 +4,8 @@ import HomeSafety from './images/urban-409.png'
 import TrackEveryWhere from './images/urban-411.png'
 import test from './images/1605287291492.jpg'
 import testtwo from './images/1604457981001.jpg'
+import finances from './images/finance-stability.png'
+import box from './images/abstract-67.png'
 
 export const Images = {
     Logo,
@@ -11,5 +13,7 @@ export const Images = {
     HomeSafety,
     TrackEveryWhere,
     test,
-    testtwo
+    testtwo,
+    finances,
+    box
 }
