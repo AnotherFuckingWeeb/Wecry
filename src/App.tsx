@@ -1,10 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from '../src/views/Home'
+import Login from '../src/views/Login'
+import SignUp from '../src/views/SignUp'
+import UserSignUp from '../src/views/UserSignUp'
+import CompanySignUp from '../src/views/CompanySignUp'
 
 function App() {
   return (
-    <div></div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/useregister' component={UserSignUp}/>
+        <Route exact path='/companyregister' component={CompanySignUp} />
+      </Switch>
+    </Router>
   );
 }
 

@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Images } from '../../assets/images'
 import { CompanyCard } from '../../components/CompanyCard'
 import { UserCard } from '../../components/UserCard'
+import { HomeLink } from '../../components/HomeLink'
 import './style.css'
 
 class Home extends React.Component<{}, {
@@ -33,11 +35,11 @@ class Home extends React.Component<{}, {
         },
         {
             text: "Login",
-            href: "#"
+            href: "login"
         },
         {
             text: "SignUp",
-            href: "#"
+            href: "signup"
         }
     ]
 
@@ -81,20 +83,14 @@ class Home extends React.Component<{}, {
             country: data.results[0].nat,
             users: data.results
         })
-
-        console.log(this.state.name)
-        console.log(this.state.picture)
-        console.log(this.state.country)
-        console.log(this.state.users)
     }
 
     render() : JSX.Element {
         return(
             <main>
                 <header className='home-navbar' >
-                    <div className='home-navbar-logo'>
-                        <img src={Images.Logo} />
-                        <h3>Wecry</h3>
+                    <div className='home-navbar-logo' >
+                        <HomeLink/>
                     </div>
                     <nav className='home-navbar-nav' >
                         <ul>
@@ -102,7 +98,7 @@ class Home extends React.Component<{}, {
                                 this.Links.map((link: any) : JSX.Element => {
                                     return(
                                         <li>
-                                            <a href={link.href}>{link.text}</a>
+                                            <Link to={link.href}>{link.text}</Link>
                                         </li>
                                     )
                                 })

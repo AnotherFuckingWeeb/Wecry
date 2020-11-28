@@ -1,0 +1,148 @@
+.user-sign-up-navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #ffeb3b;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.user-sign-up-container-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-sign-up-card {
+    width: 900px;
+    height: 500px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+}
+
+.user-sign-up-card-yellow-section {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffeb3b;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 20px;
+}
+
+.user-sign-up-card-yellow-section-title {
+    margin-top: 20px;
+}
+
+.user-sign-up-card-yellow-section p {
+    color: #3d4849;
+}
+
+.user-sign-up-card-yellow-section img {
+    height: 150px;
+}
+
+.user-sign-up-card-form-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.user-sign-up-card-form-section form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-sign-up-card-user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 2px solid #3483fa;
+    position: relative;
+    cursor: pointer;
+}
+
+.user-sign-up-card-user-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.user-sign-up-card-user-image-hover-container {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 100%;
+    color: white;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.user-sign-up-card-form-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-sign-up-card-form-input-container-input-width {
+    width: 40%;
+}
+
+.user-sign-up-card-form-select-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+
+.user-sign-up-card-form-select {
+    width: 240px;
+    height: 50px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.user-sign-up-card-form-select select {
+    width: 100%;
+    outline: none;
+    height: 100%;
+    font-family: 'Roboto' sans-serif;
+    appearance: none;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.user-sign-up-card-user-image:hover .user-sign-up-card-user-image-hover-container {
+    display: flex;
+}

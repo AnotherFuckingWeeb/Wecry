@@ -11,6 +11,7 @@
     margin-bottom: 50px;
     box-shadow: 5px 5px 5px #b8c5d9;
     cursor: pointer;
+    text-decoration: none;
     transition: 0.3s ease;
 }
 

@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 import { IAccountChoiceButtonProps } from './AccountChoiceButtonPropsInterface'
 import './style.css'
 
 
-export const AccountChoiceButton = (props: IAccountChoiceButtonProps) : JSX.Element => {
+export const AccountChoiceButtonLink = (props: IAccountChoiceButtonProps) : JSX.Element => {
     return (
-        <div className='account-choice-button'>
+        <Link to={props.href} className='account-choice-button'>
             <div className='account-choice-button-description-container'>
                 <div className='account-choice-button-description-icon' >
                     <FontAwesomeIcon icon={props.icon} size='lg' />
@@ -18,6 +19,6 @@ export const AccountChoiceButton = (props: IAccountChoiceButtonProps) : JSX.Elem
                 </div>
             </div>
             <FontAwesomeIcon icon={faLongArrowAltRight} size='lg' />
-        </div>
+        </Link>
     )
 }

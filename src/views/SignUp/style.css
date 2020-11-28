@@ -14,24 +14,6 @@
     padding: 20px;
 }
 
-.sign-up-logo {
-    display: flex;
-}
-
-.sign-up-logo img {
-    margin-top: 5px;
-    height: 100%;
-    width: 50px;
-}
-
-.sign-up-logo h3 {
-    font-weight: 400px;
-    margin-left: 5px;
-    margin-top: 20px;
-    color: '#5f5f79';
-    font-family: 'Montserrat';
-}
-
 .sign-up-yellow-container-label h1 {
     font-size: 50px;
 }
