@@ -39,11 +39,11 @@ class Login extends React.Component<ILoginProps, ILoginState> {
                 </Helmet>
                 <div className='login-card-container' >
                     <div className='login-card' >
-                        <Header title='Hi! Please enter your username or your email and password' />
-                        <InputText placeholder='Email or username' type="text" name="username" value={this.state.username} onChange={this.onStateChange} />
+                        <Header title='Hi! Please enter your email account and password' />
+                        <InputText placeholder='Email' type="text" name="username" value={this.state.username} onChange={this.onStateChange} />
                         <InputText placeholder='password' type="password" name="password" value={this.state.password} onChange={this.onStateChange} />
                         <ButtonStyleOne title='Sign In'/>
-                        <LinkButton title='Create Account' link='#'/>
+                        <LinkButton href='signup' title='Create Account' link='#'/>
                     </div>
                 </div>
             </main>

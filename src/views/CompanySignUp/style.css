@@ -1,0 +1,174 @@
+.company-signup-navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #ffeb3b;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.company-signup-container-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-signup-card {
+    width: 900px;
+    height: 600px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+}
+
+.company-signup-card-yellow-section {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffeb3b;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 20px;
+}
+
+.company-signup-card-yellow-section h1 {
+    margin-top: 20px;
+}
+
+.company-signup-card-yellow-section p {
+    color: #3d4849;
+}
+
+.company-signup-card-yellow-section img {
+    height: 200px;
+}
+
+.company-signup-card-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.company-signup-card-form-wallpaper {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.company-signup-card-form-wallpaper-img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+}
+
+.company-signup-card-form-company-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 140px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.company-signup-card-form-company-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.company-signup-card-form-wallpaper-hover-container {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.company-signup-card-form-company-image-hover-container {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 100%;
+    color: white;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.company-signup-card-form-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.company-signup-card-form-input-container-input-width {
+    width: 40%;
+}
+
+.company-signup-card-form-textarea-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.company-signup-card-form-textarea-container textarea {
+    width: 80%;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    resize: none;
+    outline: none;
+    padding: 10px;
+}
+
+.company-signup-card-form-wallpaper:hover .company-signup-card-form-wallpaper-hover-container {
+    display: flex;
+}
+
+.company-signup-card-form-company-image:hover .company-signup-card-form-company-image-hover-container {
+    display: flex;
+}

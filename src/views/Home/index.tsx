@@ -27,10 +27,10 @@ class Home extends React.Component<{}, {
     private Links : Array<object> = [
         {
             text: "Catalog",
-            href: "#"
+            href: "catalog"
         },
         {
-            text: "Products",
+            text: "Companies",
             href: "#"
         },
         {
@@ -116,7 +116,7 @@ class Home extends React.Component<{}, {
                             <div className='yellow-card-description'>
                                 <p>Wecry is the website that allows you to get rid of those things that you no longer use and earn money for it! From that old bike to your TV you bought last year, there is nothing wecry won't let you sell. If selling is not enough for you, you can also buy the things that other people (and companies) have for sale.</p>
                             </div>
-                            <a href="" className='yellow-card-signup-button'>Sign Up</a>
+                            <Link to='signup' className='yellow-card-signup-button'>Sign Up</Link>
                         </div>
                     </div>
                 </section>

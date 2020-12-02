@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { IUserSignUpProps } from './UserSignUpPropsInterface'
 import { IUserSignUpState } from './UserSignUpStateInterface'
-import { HomeLink } from '../../components/HomeLink'
+import { HomeNavbar } from '../../components/Navbars/HomeNavbar'
 import { InputText } from '../../components/InputText'
 import { ButtonStyleOne } from '../../components/Buttons/ButtonStyleOne'
 import { FlagIcon } from '../../components/Flag/flag'
@@ -69,13 +69,7 @@ class UserSignUp extends React.Component<IUserSignUpProps, IUserSignUpState> {
                     <title>User Register</title>
                     <style>{'body { background-color: #eceff1; }'}</style>
                 </Helmet>
-                <header>
-                    <nav>
-                        <div className='user-sign-up-navbar' >
-                            <HomeLink/>
-                        </div>
-                    </nav>
-                </header>
+                <HomeNavbar/>
                 <section className='user-sign-up-container-section' >
                     <div className='user-sign-up-card' >
                         <div className='user-sign-up-card-yellow-section' >

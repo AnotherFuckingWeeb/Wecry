@@ -7,6 +7,8 @@ import testtwo from './images/1604457981001.jpg'
 import finances from './images/finance-stability.png'
 import box from './images/abstract-67.png'
 import userAccount from './images/pablita-522.png'
+import wallpapertest from './images/720433.png'
+import companyAccount from './images/abstract-payment-processed-1.png'
 
 export const Images = {
     Logo,
@@ -17,5 +19,7 @@ export const Images = {
     testtwo,
     finances,
     box,
-    userAccount
+    userAccount,
+    companyAccount,
+    wallpapertest
 }

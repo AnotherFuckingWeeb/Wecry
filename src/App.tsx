@@ -5,6 +5,7 @@ import Login from '../src/views/Login'
 import SignUp from '../src/views/SignUp'
 import UserSignUp from '../src/views/UserSignUp'
 import CompanySignUp from '../src/views/CompanySignUp'
+import Catalog from '../src/views/Catalog'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/useregister' component={UserSignUp}/>
         <Route exact path='/companyregister' component={CompanySignUp} />
+        <Route exact path='/catalog' component={Catalog} />
       </Switch>
     </Router>
   );

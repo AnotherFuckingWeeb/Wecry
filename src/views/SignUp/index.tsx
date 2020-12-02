@@ -1,8 +1,8 @@
 import React from 'react'
 import { faUsers, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { Images } from '../../assets/images';
-import { ISignUpProps } from './SignUpProps'
-import { ISignUpState } from './SignUpState'
+import { ISignUpProps } from './SignUpPropsInterface'
+import { ISignUpState } from './SignUpStateInterface'
 import { AccountChoiceButtonLink } from '../../components/Buttons/AccountChoiceButton'
 import { HomeLink } from '../../components/HomeLink'
 import './style.css'

@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ILinkButtonProps } from './LinkButtonPropsInterface'
 import './style.css'
 
 export const LinkButton = (props: ILinkButtonProps): JSX.Element => {
     
     return (
-        <a href={props.link} className='link-button'>{props.title}</a>
+        <Link to={props.href} href={props.link} className='link-button'>{props.title}</Link>
     )
 }

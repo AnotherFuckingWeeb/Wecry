@@ -1,0 +1,19 @@
+.description-input {
+    width: 80%;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    transition: ease 0.3s;
+}
+
+.description-input:focus {
+    border: 2px solid #3483fa;
+}
