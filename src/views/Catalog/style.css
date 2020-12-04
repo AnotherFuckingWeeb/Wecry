@@ -1,0 +1,12 @@
+.catalog-header {
+    text-align: center;
+    color: #3483fa;
+    margin-bottom: 100px;
+}
+
+.categories-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { Images } from '../../assets/images'
 import { CompanyCard } from '../../components/CompanyCard'
@@ -30,8 +31,8 @@ class Home extends React.Component<{}, {
             href: "catalog"
         },
         {
-            text: "Companies",
-            href: "#"
+            text: "Stores",
+            href: "stores"
         },
         {
             text: "Login",
@@ -88,6 +89,9 @@ class Home extends React.Component<{}, {
     render() : JSX.Element {
         return(
             <main>
+                <Helmet>
+                    <title>Wecry</title>
+                </Helmet>
                 <header className='home-navbar' >
                     <div className='home-navbar-logo' >
                         <HomeLink/>

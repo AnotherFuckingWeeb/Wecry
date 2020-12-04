@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 import { faUsers, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { Images } from '../../assets/images';
 import { ISignUpProps } from './SignUpPropsInterface'
@@ -7,11 +8,15 @@ import { AccountChoiceButtonLink } from '../../components/Buttons/AccountChoiceB
 import { HomeLink } from '../../components/HomeLink'
 import './style.css'
 
+
 class SignUp extends React.Component<ISignUpProps, ISignUpState> {
     
     render() : JSX.Element {
         return(
             <main className='sign-up-main-container'> 
+                <Helmet>
+                    <title>Sign Up</title>
+                </Helmet>
                 <section>
                     <div className='sign-up-yellow-container' >
                         <HomeLink/>
