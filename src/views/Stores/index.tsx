@@ -1,10 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet' 
+import { IStoreProps } from './StorePropsInterface'
+import { IStoreState } from './StoreStateInterface'
 import { HomeNavbar } from '../../components/Navbars/HomeNavbar'
 import { StoreSection } from '../../components/StoreSection'
 import './style.css'
 
-class Stores extends React.Component {
+class Stores extends React.Component<IStoreProps, IStoreState> {
 
     private categories: Array<any> = [
         {
