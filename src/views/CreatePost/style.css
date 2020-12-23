@@ -1,0 +1,33 @@
+.create-post-banner-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.create-post-banner {
+    width: 800px;
+    height: 200px;
+    background-color: #ffeb3b;
+    margin-bottom: 50px;
+    padding: 20px;
+    display: flex;
+    align-items: center;   
+}
+
+.create-post-banner img {
+    height: 100%;
+    margin-right: 10px;
+}
+
+.create-post-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.create-post-form-container b {
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-right: 10px;
+}

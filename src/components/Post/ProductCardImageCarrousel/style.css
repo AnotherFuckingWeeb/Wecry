@@ -1,0 +1,10 @@
+.product-card-image-carrousel {
+    width: 600px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border: 5px;
+    padding: 20px;
+    margin-bottom: 50px;
+}

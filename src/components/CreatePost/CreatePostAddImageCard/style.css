@@ -1,0 +1,14 @@
+.create-post-add-image-card {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;   
+}
+
+.create-post-add-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

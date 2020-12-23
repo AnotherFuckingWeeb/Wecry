@@ -9,6 +9,8 @@ import box from './images/abstract-67.png'
 import userAccount from './images/pablita-522.png'
 import wallpapertest from './images/720433.png'
 import companyAccount from './images/abstract-payment-processed-1.png'
+import placeholder from './images/abstract-coming-soon.png'
+import createPost from './images/flame-1235.png'
 
 export const Images = {
     Logo,
@@ -21,5 +23,7 @@ export const Images = {
     box,
     userAccount,
     companyAccount,
-    wallpapertest
+    wallpapertest,
+    placeholder,
+    createPost
 }

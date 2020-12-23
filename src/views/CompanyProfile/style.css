@@ -1,0 +1,17 @@
+.company-profile-main-container {
+    display: flex;
+    margin-top: 50px
+}
+
+.company-info-card-container {
+    flex: 0.5;
+}
+
+.company-profile-products-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-right: 50px;
+} 

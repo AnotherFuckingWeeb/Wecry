@@ -1,0 +1,30 @@
+.create-post-image-carrousel-card {
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.create-post-image-carrousel-card-image-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    border: 2px dashed rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease;
+}
+
+.create-post-image-carrousel-card-image-button:hover {
+    border-color: #3483fa;
+    color: #3483fa;
+}

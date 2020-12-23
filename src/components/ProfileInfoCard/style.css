@@ -1,0 +1,51 @@
+.profile-info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    height: 450px;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 100px;
+}
+
+.profile-info-card img {
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.profile-info-card h3 {
+    margin-bottom: 5px;
+}
+
+.profile-info-card p {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.profile-info-card-country {
+    margin-bottom: 25px;
+}
+
+.profile-info-card-stats-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.profile-info-card-stat {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(125, 33, 177, 0.5);
+    border-radius: 100%;
+}
+
+.profile-info-card-mb {
+    margin-bottom: 10px;
+}

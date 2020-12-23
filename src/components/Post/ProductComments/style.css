@@ -1,0 +1,13 @@
+.product-comments {
+    width: 600px;
+    background-color: #c5cae9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.product-comments-title {
+    margin-bottom: 20px;
+}

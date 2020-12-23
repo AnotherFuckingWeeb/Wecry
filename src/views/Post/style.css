@@ -1,0 +1,11 @@
+.post-main-section {
+    margin-top: 50px;
+    display: flex;
+}
+
+.post-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
