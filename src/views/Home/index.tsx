@@ -1,90 +1,68 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
+import { IHomeState } from './HomeStateInterface'
+import { IHomeProps } from './HomePropsInterface'
 import { Images } from '../../assets/images'
 import { CompanyCard } from '../../components/CompanyCard'
 import { UserCard } from '../../components/UserCard'
 import { HomeLink } from '../../components/HomeLink'
+import { BlackButtonLink } from '../../components/Buttons/BlackButtonLink'
 import './style.css'
 
-class Home extends React.Component<{}, {
-        name: string,
-        picture: string,
-        country: string,
-        users: Array<any>
-}> {
+class Home extends React.Component<IHomeProps, IHomeState> {
 
-    constructor(props: {}) {
+    constructor(props: IHomeProps) {
         super(props);
 
         this.state =  {
-            name: '',
-            picture: '',
-            country: '',
-            users: []
+            users: [],
+            companies: []
         }
     }
 
     private Links : Array<object> = [
         {
             text: "Catalog",
-            href: "catalog"
+            href: "/catalog"
         },
         {
-            text: "Stores",
-            href: "stores"
+            text: "Featured Stores",
+            href: "/stores/featured"
         },
         {
             text: "Login",
-            href: "login"
+            href: "/login"
         },
         {
             text: "SignUp",
-            href: "signup"
+            href: "/signup"
         }
     ]
 
-    private Companies : Array<object> = [
-        {
-            wallpaper: Images.test,
-            logo: Images.testtwo,
-            name: 'Wix',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!',
-        },
-        {
-            wallpaper: Images.test,
-            logo: Images.testtwo,
-            name: 'Seele',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!',
-        },
-        {
-            wallpaper: Images.test,
-            logo: Images.testtwo,
-            name: 'Surfaceo',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!',
-        },
-        {
-            wallpaper: Images.test,
-            logo: Images.testtwo,
-            name: 'Nike',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!',
-        }
-    ]
+    private getFeedback = async () : Promise<void> => {
+        const url = `http://localhost:4000/home`
 
-    async componentDidMount() {
-        const url = 'https://randomuser.me/api/?results=4';
-
-        const response = await fetch(url)
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
 
         const data = await response.json();
 
         this.setState({
-            name: `${data.results[0].name.first} ${data.results[0].name.last}`,
-            picture: data.results[0].picture.large,
-            country: data.results[0].nat,
-            users: data.results
-        })
+            ...this.state,
+            users: data.feedback.users,
+            companies: data.feedback.companies
+        });
     }
+    
+    async componentDidMount() {
+        await this.getFeedback();
+    }
+
 
     render() : JSX.Element {
         return(
@@ -120,7 +98,7 @@ class Home extends React.Component<{}, {
                             <div className='yellow-card-description'>
                                 <p>Wecry is the website that allows you to get rid of those things that you no longer use and earn money for it! From that old bike to your TV you bought last year, there is nothing wecry won't let you sell. If selling is not enough for you, you can also buy the things that other people (and companies) have for sale.</p>
                             </div>
-                            <Link to='signup' className='yellow-card-signup-button'>Sign Up</Link>
+                            <BlackButtonLink title='Sign Up' href='/signup' />
                         </div>
                     </div>
                 </section>
@@ -158,9 +136,9 @@ class Home extends React.Component<{}, {
                         </div>
                         <div className='carousel'>
                             {
-                                this.Companies.map((company: any) : JSX.Element => {
+                                this.state.companies.map((company: any) : JSX.Element => {
                                     return(
-                                        <CompanyCard wallpaper={company.wallpaper} logo={company.logo} name={company.name} description={company.description} />
+                                        <CompanyCard id={company.id} wallpaper={company.wallpaper} logo={company.profile_image} name={company.firstname} description={company.comment} />
                                     )
                                 })
                             }
@@ -177,13 +155,20 @@ class Home extends React.Component<{}, {
                             {
                                 this.state.users.map((user: any) : JSX.Element => {
                                     return (
-                                        <UserCard name={`${user.name.first} ${user.name.last}`} picture={user.picture.large} country={user.nat} />
+                                        <UserCard key={user.id} id={user.id} name={`${user.firstname} ${user.lastname}`} picture={user.profile_image} country={user.country} description={user.comment} />
                                     )
                                 })
                             }
                         </div>
                     </div>
                 </section>
+                <footer>
+                    <HomeLink/>
+                    <div className='feedback-container'>
+                        <h2>Love Wecry?</h2>
+                        <BlackButtonLink title='Give Us Feedback' href='/feedback' />
+                    </div>
+                </footer>
             </main>
         )
     }

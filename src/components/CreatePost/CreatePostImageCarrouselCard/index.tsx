@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ICreatePostImageCarrouselCardProps } from '../CreatePostImageCarrouselCard/CreatePostImageCarrouselCardPropsInterface'
 import { CreatePostImageButton } from '../CreatePostImageButton'
 import './style.css'
 
-export const CreatePostImageCarrouselCard = () => {
-
-    const [images, setImages] = useState([] as any)
+export const CreatePostImageCarrouselCard = (props: ICreatePostImageCarrouselCardProps) => {
 
     const openImageFolder = () : void => {
         const input = document.getElementById('multiImage');
@@ -16,17 +13,19 @@ export const CreatePostImageCarrouselCard = () => {
 
     const getImagesPreview = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files !== null) {
-            setImages([...images, URL.createObjectURL(event.target.files[0])])
+            props.onChange(event);
         }
+
+        console.log(props.images)
     }
 
     return (
         <div className='create-post-image-carrousel-card' >
-            <input style={{display: 'none'}} type="file" name="" id="multiImage" multiple onChange={getImagesPreview} maxLength={5} />
+            <input style={{display: 'none'}} type="file" name="post-images" id="multiImage" multiple onChange={getImagesPreview} maxLength={5} />
             <div style={{display: 'flex', marginRight: 5}} >
-                {(images || []).map((url: string) : JSX.Element => {
-                    return(
-                        <img style={{width: 80, height: 80, marginRight: 5}} src={url} alt='...'/>
+                {(props.images || []).map((url: string): JSX.Element => {
+                    return (
+                        <img style={{ width: 80, height: 80, marginRight: 5 }} src={URL.createObjectURL(url)} alt='...' />
                     )
                 })}
             </div>

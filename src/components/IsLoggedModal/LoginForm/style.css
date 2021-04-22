@@ -1,0 +1,15 @@
+.mb-twenty {
+    margin-bottom: 20px;
+}
+
+.login-form-input {
+    width: 80%;
+}
+
+.login-form-input input[type=email] {
+    margin-bottom: 20px;
+}
+
+.login-form-input input[type=password] {
+    margin-bottom: 50px;
+}

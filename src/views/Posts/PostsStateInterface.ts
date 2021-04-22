@@ -1,3 +1,5 @@
 export interface IPostsState {
-    result: boolean;
+    searchTerm: string | undefined;
+    posts: [];
+    favorites: any[]
 }

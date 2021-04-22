@@ -7,7 +7,7 @@ export const App = () : JSX.Element => {
         <Router>
             <Switch>
                 {
-                    routes.map((route) => {
+                    routes.map((route) : JSX.Element => {
                         return(
                             <Route exact={route.exact} path={route.path} component={route.component} />
                         )

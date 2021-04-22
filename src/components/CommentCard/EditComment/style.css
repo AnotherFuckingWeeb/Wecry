@@ -1,0 +1,35 @@
+.edit-comment-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.edit-comment-btn {
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    font-family: 15px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.edit-comment-btn-red {
+    background-color: rgba(255, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.edit-comment-btn-blue {
+    background-color: rgba(0, 0, 255, 0.8);
+}
+
+.edit-comment-btn-red:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.edit-comment-btn-blue:hover {
+    background-color: rgba(0, 0, 255, 1);
+}

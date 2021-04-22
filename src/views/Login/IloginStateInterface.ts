@@ -1,5 +1,11 @@
 export interface ILoginState {
-    username: string;
+    email: string;
     password: string;
-    loading: boolean
+    message: string,
+    loading: boolean;
+    isError: boolean;
+    formErrors: {
+        email: string;
+        password: string;
+    }
 }

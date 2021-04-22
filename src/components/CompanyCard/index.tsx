@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ICardCompanyProps } from './CompanyCardPropsInterface'
 import './style.css'
 
@@ -7,11 +8,11 @@ export const CompanyCard = (props: ICardCompanyProps) : JSX.Element => {
         <div className='company-card' >
             <div className='company-card-logo-container'>
                 <div className='company-card-logo' >
-                    <img src={props.logo}/>
+                    <img src={`http://localhost:4000/uploads/${props.logo}`}/>
                 </div>
             </div>
             <div className='company-card-wallpaper' >
-                <img src={props.wallpaper} alt="" />
+                <img src={`http://localhost:4000/uploads/${props.wallpaper}`} alt="" />
             </div>
             <div className='company-card-name' >
                 <h1>{props.name}</h1>
@@ -20,7 +21,7 @@ export const CompanyCard = (props: ICardCompanyProps) : JSX.Element => {
                 <q>{props.description}</q>
             </div>
             <div className='company-card-link-container' >
-                <a href="">See our products</a>
+                <Link to={`/company/profile/cid=${props.id}`} href="">See our products</Link>
             </div>
         </div>
     )

@@ -1,0 +1,14 @@
+.is-logged-modal {
+    width: 500px;
+    height: 600px;
+    top: 160px;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,44 @@
+.zoom-in-image p {
+    margin-bottom: 10px;
+}
+
+.zoom-in-image-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.zoom-in-image-buttons-container p {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.zoom-in-image-buttons-container a {
+    text-decoration: none;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.zoom-in-image-buttons-container a:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.zoom-in-image-buttons-container p:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+@keyframes show {
+    from {
+        transform: scale(0);
+        opacity: 0;
+        z-index: -1;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 2;
+    }
+}

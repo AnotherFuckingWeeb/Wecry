@@ -1,28 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { IPostCardProps } from './PostCardPropsInterface'
+import { Header } from '../Header'
+import { User } from '../../utils/user'
 import './style.css'
 
-export const PostCard = () : JSX.Element => {
+export const PostCard = (props: IPostCardProps) : JSX.Element => {
+
+    const user = new User();
+
+    const [isFavorite, setIsFavorite] = useState(props.isFavorite);
+
+    const truncate = (text: string, length: number) : string => {
+        return (text.length > length) ? text.substr(0, length) + '...' : text
+    }
+
+    const addToShoppingCart = async () : Promise<void> => {
+        const url = 'http://localhost:4000/shoppingcart/add';
+        const request = {
+            userId: user.Id,
+            postId: props.id
+        };
+
+        await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        });
+    }  
+
+    const removeShoppingCart = async () : Promise<void> => {
+        const url = `http://localhost:4000/shoppingcart/${props.id}/remove`;
+
+        await fetch(url, {
+            method: 'DELETE'
+        });
+    }
+
+    const toggleShoppingCart = async () : Promise<void> => {
+        if (isFavorite) {
+            await addToShoppingCart();
+            setIsFavorite(true);
+        }
+
+        else {
+            await removeShoppingCart();
+            setIsFavorite(false);
+        }
+    }
+
     return(
         <div className='post-card' >
             <div className='post-card-image'>
-                <img src='https://http2.mlstatic.com/televisor-panasonic-32-pulgadas-lcd-hd-como-nuevo-D_NQ_NP_809912-MLV42955335671_072020-O.webp' alt="" />
+                <img src={`http://localhost:4000/uploads/${props.image}`} alt="" />
             </div>
             <div className='post-card-body' >
-                <div className='post-card-title' >
-                    <p>LG TV LED DPI 1600MS 200 inches</p>
-                    <FontAwesomeIcon className='heart-icon' icon={faHeart} size='lg' />
-                </div>
-                <div className='post-card-currency' >
-                    <p><b>$</b> 30.000</p>
+                <div>
+                    <div className='post-card-title' >
+                        <Header title={props.title} fontSize={20} />
+                        { user.Id && <FontAwesomeIcon color={isFavorite ? 'red' : 'rgba(0, 0, 0, 0.5)'} icon={faHeart} size='lg' onClick={toggleShoppingCart} /> }
+                    </div>
+                    <p><b>$ </b>{props.price}</p>
                 </div>
                 <div className='post-card-description'>
-                    <p>Vendo televisor poco uso, todo funcional con 10 puertos para DVD y Bluray con control incluído y se puede colocar en la pared o en la mesa. Está llevando polvo asi que prefiere que alguien le de un buen uso además de que ya no lo necesito porque no miro televisión</p>
+                    <p>{truncate(props.description, 100)}</p>
                 </div>
                 <div className='post-card-link'>
-                    <Link to='/post' >Take a look</Link>
+                    <Link to={`/post/post_id=${props.id}`} >Take a look</Link>
                 </div>
             </div>
         </div>

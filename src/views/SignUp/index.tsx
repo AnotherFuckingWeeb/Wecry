@@ -40,8 +40,8 @@ class SignUp extends React.Component<ISignUpProps, ISignUpState> {
                         <p>Choose the type of account you want to create</p>
                     </div>
                     <div className='sign-up-buttons-container'>
-                        <AccountChoiceButtonLink href='useregister' title='User Account' description='a simple user account' icon={faUsers} />
-                        <AccountChoiceButtonLink href='companyregister' title='Company Account' description='a company that sells certain product' icon={faBriefcase} />
+                        <AccountChoiceButtonLink href='/user/signup' title='User Account' description='a simple user account' icon={faUsers} />
+                        <AccountChoiceButtonLink href='/company/signup' title='Company Account' description='a company that sells certain product' icon={faBriefcase} />
                     </div>
                 </section>
             </main>

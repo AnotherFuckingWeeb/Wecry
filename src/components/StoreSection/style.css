@@ -1,4 +1,5 @@
 .store-section {
+    position: relative;
     width: 50%;
     padding-left: 20px;
     padding-right: 20px;
@@ -14,22 +15,6 @@
 
 .store-section-title p {
     font-size: 25px;
-}
-
-.store-section-link {
-    width: 130px;
-    height: 60px;
-    background-color: #3483fa;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-}
-
-.store-section-link p {
-    font-size: 18px;
 }
 
 .store-section-stores-container {

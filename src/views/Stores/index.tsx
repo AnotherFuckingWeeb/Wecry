@@ -1,60 +1,28 @@
 import React from 'react'
-import { Helmet } from 'react-helmet' 
-import { IStoreProps } from './StorePropsInterface'
-import { IStoreState } from './StoreStateInterface'
-import { HomeNavbar } from '../../components/Navbars/HomeNavbar'
-import { StoreSection } from '../../components/StoreSection'
+import { Helmet } from 'react-helmet'
+import { SearchBar } from '../../components/Navbars/SearchBar'
+import { Header } from '../../components/Header'
+import { CompanyCard } from '../../components/CompanyCard'
 import './style.css'
 
-class Stores extends React.Component<IStoreProps, IStoreState> {
-
-    private categories: Array<any> = [
-        {
-            title: 'Home'
-        },
-        {
-            title: 'Cellphones'
-        },
-        {
-            title: 'Babies'
-        },
-        {
-            title: 'Kitchen'
-        },
-        {
-            title: 'Sports'
-        },
-        {
-            title: 'Clothes'
-        },
-        {
-            title: 'PC'
-        }
-    ]
-
+class Stores extends React.Component {
     render() : JSX.Element {
-        return(
-            <main>
+        return (
+            <div>
                 <Helmet>
                     <title>Stores</title>
                     <style>{'body { background-color: #ebebeb; }'}</style>
                 </Helmet>
-                <HomeNavbar/>
-                <section className='stores-header' >
-                    <div className='store-banner' >
-                        <h1>See the stores Wecry has for you!</h1>
-                    </div>
-                </section>
-                <section className='stores-section-container' >
-                    {
-                        this.categories.map((category) : JSX.Element => {
-                            return (
-                                <StoreSection category={category.title} />
-                            )
-                        })
-                    }
-                </section>
-            </main>
+                <div className='category-store-header-container' >
+                    <Header title='Store for Sports' fontSize={50} />
+                </div>
+                <div className='category-stores-container' >
+                    <CompanyCard logo='http://localhost:3000/static/media/1604457981001.b21f8af2.jpg' wallpaper='http://localhost:3000/static/media/720433.c4e92d81.png' name='Adidas' description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!' />
+                    <CompanyCard logo='http://localhost:3000/static/media/1604457981001.b21f8af2.jpg' wallpaper='http://localhost:3000/static/media/720433.c4e92d81.png' name='Adidas' description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!' />
+                    <CompanyCard logo='http://localhost:3000/static/media/1604457981001.b21f8af2.jpg' wallpaper='http://localhost:3000/static/media/720433.c4e92d81.png' name='Adidas' description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!' />
+                    <CompanyCard logo='http://localhost:3000/static/media/1604457981001.b21f8af2.jpg' wallpaper='http://localhost:3000/static/media/720433.c4e92d81.png' name='Adidas' description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit saepe pariatur odio dignissimos at dolores illo iste aspernatur, quia rem!' />
+                </div>
+            </div>
         )
     }
 }

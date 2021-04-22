@@ -1,0 +1,23 @@
+.user-profile-info {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.user-profile-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 5px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.user-profile-info:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}

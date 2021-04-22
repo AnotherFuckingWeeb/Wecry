@@ -13,6 +13,22 @@
     transition: 0.2s ease;
 }
 
+.input-invalid {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border: 2px solid red;
+    color: red;
+}
+
+.input-invalid-label {
+    color: white;
+    border-radius: 3px;
+    font-size: 11px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
 .form-input-text:focus {
     border: 2px solid #3483fa;
 }
+

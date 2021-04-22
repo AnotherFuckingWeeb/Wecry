@@ -1,28 +1,54 @@
 import React, { useState } from 'react'
-import { ButtonStyleOne } from '../../Buttons/ButtonStyleOne'
-import { DescriptionInput } from '../../DescriptionInput'
-import { Header } from '../../Header'
+import { IPostCommentCardProps } from './PostCommentCardPropsInterface'
+import { CommentForm } from './CommentForm'
+import { UserIsNotLogged } from './UserIsNotLogged'
+import { User } from '../../../utils/user'
 import './style.css'
 
-export const PostCommentCard = () : JSX.Element => {
-    
-    const [comment, setComment] = useState('')
 
-    const OnchangeState = (event: React.ChangeEvent<HTMLTextAreaElement>) : void => {
-        const { value } = event.target
-        setComment(value)
-        console.log(comment)
+export const PostCommentCard = (props: IPostCommentCardProps) : JSX.Element => {
+   
+    const user = new User();
+
+    const [isLoading, setLoading] = useState(false)
+    const [commentError, setCommentError] = useState('');
+
+    const onSubmit = async () : Promise<void> => {
+        setLoading(true);
+        
+        if (isValidComment()) {
+            await props.onSubmit()
+        }
+        
+        setLoading(false);
     }
 
+    const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) : void => {
+        props.onChange(event);
+    }
+
+    const isValidComment = () : boolean => {
+        if (props.value === '') {
+            setCommentError('Comment cannot be empty');
+            return false;
+        }
+    
+        else {
+            return true;
+        }
+    }
+ 
     return (
-        <div className='post-comment-card' >
-            <div className='post-comment-card-title' >
-                <Header title='Write a comment' />
-            </div>
-            <DescriptionInput width={'90%'} placeholder='put a comment' name='comment' value={comment} onChange={OnchangeState} />
-            <div className='post-comment-card-button'>
-                <ButtonStyleOne title='post comment ' />
-            </div>
+        <div className='post-comment-card'>
+            { user.Id ? <CommentForm 
+                            isLoading={isLoading} 
+                            value={props.value} 
+                            onChange={onChange} 
+                            commentError={commentError} 
+                            onFocus={() => setCommentError('') } 
+                            onSubmit={onSubmit} 
+                        /> : <UserIsNotLogged/>  
+            }
         </div>
     )
 }

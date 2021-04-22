@@ -1,0 +1,20 @@
+.panel-menu {
+    position: absolute;
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+    animation: show .3s;
+    transform: scale(1);
+}
+
+@keyframes show {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

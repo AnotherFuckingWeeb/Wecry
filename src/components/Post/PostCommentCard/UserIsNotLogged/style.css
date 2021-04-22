@@ -1,0 +1,10 @@
+.user-is-not-logged {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-is-not-logged h2 {
+    margin-bottom: 20px;
+}

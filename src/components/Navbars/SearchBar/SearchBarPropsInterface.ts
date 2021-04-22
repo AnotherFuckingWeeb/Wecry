@@ -1,3 +1,3 @@
 export interface ISearchBarProps {
-    onSearch?: () => void;
+    onSearch: (title: string) => void;
 }

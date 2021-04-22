@@ -1,0 +1,9 @@
+.post-comment-card-title {
+    margin-bottom: 20px;
+}
+
+.post-comment-card-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

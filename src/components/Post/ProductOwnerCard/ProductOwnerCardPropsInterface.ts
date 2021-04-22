@@ -3,4 +3,6 @@ export interface IProductOwnerCardPropsInterface {
     image: string;
     username: string;
     country: string;
+    description: string
+    isCompany: boolean;
 }

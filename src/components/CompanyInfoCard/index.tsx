@@ -1,16 +1,23 @@
 import React from 'react'
+import { ICompanyInfoCardProps } from './CompanyInfoCardPropsInterface'
+import { LinkButton } from '../Buttons/LinkButton'
+import { User } from '../../utils/user'
 import './style.css'
 
-export const CompanyInfoCard = () : JSX.Element => {
+export const CompanyInfoCard = (props: ICompanyInfoCardProps) : JSX.Element => {
+    
+    const user: User = new User()
+
     return (
         <div className='company-info-card' >
             <div className='shadow-image-card' >
-                <img src="https://http2.mlstatic.com/D_Q_NP_821476-MLA31803877484_082019-T.webp" alt="" />
+                <img src={`http://localhost:4000/uploads/${props.logo}`} alt="" />
             </div>
-            <h3>Margaret Rosamine</h3>
-            <p>
-                somos la solución para tu vehiculo. Te brindamos los mejores repuestos y aceites
-            </p>
+            <h3>{props.name}</h3>
+            <p>{props.description}</p>
+            {
+                user.Id === props.id && <LinkButton title='Create Product' href='/createpost' />
+            }
         </div>
     )
 }

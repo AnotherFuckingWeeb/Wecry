@@ -1,0 +1,13 @@
+.store-section-link {
+    width: 130px;
+    height: 60px;
+    font-size: 18px;
+    background-color: #3483fa;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}

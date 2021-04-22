@@ -1,0 +1,14 @@
+.black-button-link {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 0 3px 0 3px;
+}
