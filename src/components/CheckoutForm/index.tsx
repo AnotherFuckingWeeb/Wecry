@@ -86,7 +86,7 @@ export const CheckoutForm = (props: ICheckoutFormProps) : JSX.Element => {
         <ShadowBackground>
             <div className='checkout-form'>
                 <Loading isLoading={isLoading} />
-                <img src={props.image} alt=""/>
+                <img src={`http://localhost:4000/uploads/${props.image}`} alt=""/>
                 <div className='checkout-form-body' >
                     <Header title={props.title} />
                     <Header title={`$ ${props.price}`} />

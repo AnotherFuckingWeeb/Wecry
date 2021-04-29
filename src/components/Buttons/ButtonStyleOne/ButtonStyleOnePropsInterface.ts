@@ -1,5 +1,5 @@
 export interface IButtonStyleOneProps {
     title: string;
-    icon?: any;
+    isRed? :boolean;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

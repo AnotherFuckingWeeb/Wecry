@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { User } from '../../utils/user'
 import { IEditProfileProps } from './EditProfilePropsInterface'
 import { IEditProfileState } from './EditProfileStateInterface'
@@ -12,6 +13,7 @@ import { InputSection } from '../../components/InputSection'
 import { YellowForm } from '../../components/YellowForm'
 import { Loading } from '../../components/Loading'
 import { NotificationPopUp } from '../../components/NotificationPopUp'
+import { WarningModal } from '../../components/WarningModal'
 import './style.css'
 
 class EditProfile extends React.Component<IEditProfileProps, IEditProfileState> {
@@ -135,6 +137,9 @@ class EditProfile extends React.Component<IEditProfileProps, IEditProfileState> 
         return (isValidName() && isValidEmail() && isValidPassword());
     }
 
+    private showModal = () : void => {
+    }
+
     private updateUser = async () : Promise<any> => {
 
         const url = `http://localhost:4000/edituser/${this.user.Id}`;    
@@ -173,10 +178,12 @@ class EditProfile extends React.Component<IEditProfileProps, IEditProfileState> 
                 
                 const response = await this.updateUser();
     
+                console.log(response);
+
                 this.setState({
                     loading: false,
                     isError: false,
-                    message: response.json()
+                    message: response.msg
                 })
             }
 
@@ -220,10 +227,7 @@ class EditProfile extends React.Component<IEditProfileProps, IEditProfileState> 
                             <InputText placeholder='Current Password' name='currentPassword' value={this.state.currentPassword} type='text' onChange={this.onChangeState} />
                             <InputText placeholder='New Password' name='newPassword' value={this.state.newPassword} type='text' onChange={this.onChangeState} />
                         </InputSection>
-                        
-                        <InputSection width='80%' height={100} alignItems='center' justifyContent='center' >
-                            <ButtonStyleOne title='Save Changes' />
-                        </InputSection>
+                        <ButtonStyleOne title='Save Changes' />
                     </YellowForm>
                 </section>
                 { this.state.message && <NotificationPopUp isError={this.state.isError} msg={this.state.message} close={() => this.setState({ message: '' })} /> }

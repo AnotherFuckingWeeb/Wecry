@@ -1,0 +1,57 @@
+.warning-modal {
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.warning-modal p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 30px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.warning-modal-buttons-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.warning-modal-buttons-container .btn-cancel {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.8);
+    transition: 0.3s ease all;
+}
+
+.warning-modal-buttons-container .btn-continue {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    background-color: #3483da;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease all;
+}
+
+.warning-modal-buttons-container .btn-cancel:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.warning-modal-buttons-container .btn-continue:hover {
+    background-color: #0d47a1;
+}

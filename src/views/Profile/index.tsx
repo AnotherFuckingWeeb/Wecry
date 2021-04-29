@@ -6,6 +6,8 @@ import { IProfileState } from './ProfileStateInterface'
 import { SearchBar } from '../../components/Navbars/SearchBar'
 import { PostCard } from '../../components/PostCard'
 import { ProfileInfoCard } from '../../components/ProfileInfoCard'
+import { Loading } from '../../components/Loading'
+import { NotificationPopUp } from '../../components/NotificationPopUp'
 import { User } from '../../utils/user'
 import './style.css'
 
@@ -31,7 +33,10 @@ class Profile extends React.Component<RouteChildrenProps<Tparams>, IProfileState
                 country: ''
             },
             posts: [],
-            favorites: []
+            favorites: [],
+            loading: false,
+            isError: false,
+            message: ''
         }
     }
 
@@ -99,6 +104,44 @@ class Profile extends React.Component<RouteChildrenProps<Tparams>, IProfileState
 
     }
 
+    private deleteUser = async () : Promise<any> => {
+        const url = `http://localhost:4000/userprofile/${this.user.Id}/delete`;
+
+        const request = await fetch(url, {
+            method: 'DELETE'
+        });
+
+        return request.json();
+    } 
+
+
+    private onHandleDelete = async () : Promise<void> =>  {
+        try {
+            this.setState({ loading: true })
+
+            const response = await this.deleteUser();
+            
+            this.setState({
+                message: response.msg,
+                loading: false
+            })
+        
+            this.user.SignOut();
+            window.location.href = '/'
+        } 
+        
+        catch (error) {
+            this.setState({
+                isError: true,
+                message: 'Something went wrong'
+            })
+        }
+
+        this.setState({
+            loading: false
+        })
+    }
+
     async componentDidMount() {
         await this.getUserData();
     }
@@ -112,14 +155,7 @@ class Profile extends React.Component<RouteChildrenProps<Tparams>, IProfileState
                 </Helmet>
                 <SearchBar/>
                 <div className='profile-main-container' >
-                    <PostCard
-                        id={0}
-                        image='https://i.4cdn.org/g/1619060366843.png'
-                        title='just testing my shit'
-                        price='9999'
-                        description='im testing my shit to develop a new feature to delete users posts if the user wants and thats why im using a placeholder cardpost to accomplish this fucking task'
-                        isFavorite
-                    />
+                    <Loading isLoading={this.state.loading} />
                     <div className='profile-posts-container' >
                         {
                             this.state.posts.map((post: any) : JSX.Element => {
@@ -127,8 +163,9 @@ class Profile extends React.Component<RouteChildrenProps<Tparams>, IProfileState
                             })
                         }
                     </div>
-                    <ProfileInfoCard id={this.state.user.id} profileImage={this.state.user.profileImage} name={this.state.user.name} lastname={this.state.user.lastname} email={this.state.user.email} country={this.state.user.country} />
+                    <ProfileInfoCard id={this.state.user.id} profileImage={this.state.user.profileImage} name={this.state.user.name} lastname={this.state.user.lastname} email={this.state.user.email} country={this.state.user.country} Delete={this.onHandleDelete} />
                 </div>
+                { this.state.message && <NotificationPopUp msg={this.state.message} isError={this.state.isError} close={() => this.setState({ message: '' })} /> }
             </main>
         )
     }

@@ -11,4 +11,8 @@ export interface IProfileState {
 
     posts: [];
     favorites: [];
+
+    loading: boolean;
+    isError: boolean;
+    message: string;
 }

@@ -1,5 +1,8 @@
 export interface IPostState {
+    loading: boolean;
     comment: string;
+    message: string;
+    isError: boolean;
 
     post: {
         id: number,

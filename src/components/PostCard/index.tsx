@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { IPostCardProps } from './PostCardPropsInterface'
 import { Header } from '../Header'
 import { User } from '../../utils/user'
@@ -62,7 +62,7 @@ export const PostCard = (props: IPostCardProps) : JSX.Element => {
                 <div>
                     <div className='post-card-title' >
                         <Header title={props.title} fontSize={20} />
-                        { user.Id && <FontAwesomeIcon color={isFavorite ? 'red' : 'rgba(0, 0, 0, 0.5)'} icon={faHeart} size='lg' onClick={toggleShoppingCart} /> }
+                        { user.Id && <FontAwesomeIcon className='icon' color={isFavorite ? 'red' : 'rgba(0, 0, 0, 0.5)'} icon={faHeart} size='lg' onClick={toggleShoppingCart} /> }
                     </div>
                     <p><b>$ </b>{props.price}</p>
                 </div>
@@ -70,7 +70,7 @@ export const PostCard = (props: IPostCardProps) : JSX.Element => {
                     <p>{truncate(props.description, 100)}</p>
                 </div>
                 <div className='post-card-link'>
-                    <Link to={`/post/post_id=${props.id}`} >Take a look</Link>
+                    <Link to={`/post/post_id=${props.id}`}>Take a look</Link>
                 </div>
             </div>
         </div>

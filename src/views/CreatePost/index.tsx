@@ -227,6 +227,7 @@ class CreatePost extends React.Component<ICreatePostProps, ICreatePostState> {
 
                 this.setState({
                     loading: false,
+                    isError: false,
                     message: response.msg
                 });
             }

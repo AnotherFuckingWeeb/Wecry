@@ -12,7 +12,7 @@ export const UserPanelMenu = () : JSX.Element => {
         {
             icon: faUserCircle,
             title: 'Profile',
-            href: user.isCompany === true ? `/company/profile/cid=${user.Id}` : `/user/profile/uid=${user.Id}`
+            href: user.isCompany ? `/company/profile/cid=${user.Id}` : `/user/profile/uid=${user.Id}`
         },
         {
             icon: faShoppingCart,
@@ -27,7 +27,7 @@ export const UserPanelMenu = () : JSX.Element => {
         {
             icon: faEdit,
             title: 'Edit Profile',
-            href: user.isCompany === true?  `/company/profile/edit` : '/user/profile/edit'
+            href: user.isCompany ? `/company/profile/edit` : '/user/profile/edit'
         },
         {
             icon: faDoorClosed,

@@ -1,6 +1,4 @@
 import React from 'react'
-import { loadStripe } from '@stripe/stripe-js'
-import { Elements, CardElement, useStripe, ElementsConsumer } from '@stripe/react-stripe-js'
 import { Helmet } from 'react-helmet'
 import Moment from 'moment'
 import { RouteChildrenProps } from 'react-router-dom'
@@ -13,9 +11,11 @@ import { ProductCardDescription } from '../../components/Post/ProductCardDescrip
 import { PostCommentCard } from '../../components/Post/PostCommentCard'
 import { ProductOwnerCard } from '../../components/Post/ProductOwnerCard'
 import { ProductCardImageCarrousel } from '../../components/Post/ProductCardImageCarrousel'
+import { NotificationPopUp } from '../../components/NotificationPopUp'
 import { User } from '../../utils/user'
 
 import './style.css'
+import { Loading } from '../../components/Loading'
 
 
 type TParams = { 
@@ -31,7 +31,10 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
 
         this.state = {
 
+            loading: false,
             comment: '',
+            message: '',
+            isError: false,
 
             post: {
                 id: 0,
@@ -75,6 +78,8 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
                 url = `http://localhost:4000/post/postId=${postId}/${this.user.Id}`;
             }
 
+            this.setState({loading: true})
+
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -106,7 +111,8 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
                 },
     
                 postImages: data.post_images,
-                comments: data.comments
+                comments: data.comments,
+                loading: false
             });
         } 
         
@@ -208,6 +214,39 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
         }
     }
 
+    private deletePost = async (id: number) : Promise<void> => {
+        try {
+            const url = `http://localhost:4000/post/delete/${id}`;
+        
+            this.setState({ loading: true })
+
+            const request = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type' : 'application/json'
+                }
+            });
+
+            const response = await request.json();
+
+            this.setState({
+                message: response.msg,
+                isError: false,
+                loading: false
+            })
+
+            window.location.href = this.user.isCompany ? `/company/profile/cid=${this.user.Id}` : `/user/profile/uid=${this.user.Id}`;
+        } 
+        
+        catch (error) {
+            this.setState({
+                message: 'Something went wrong',
+                isError: true,
+                loading: false
+            });
+        }
+    }
+
     async componentDidMount() {
         await this.getPostData();
     }
@@ -221,6 +260,7 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
                 </Helmet>
                 <SearchBar/>
                 <section className='post-main-section'>
+                    <Loading isLoading={this.state.loading} />
                     <div className='post-section'>
                         <ProductCardImagePreview image={this.state.post.image} />
                         <ProductCardImageCarrousel images={this.state.postImages} />
@@ -230,10 +270,13 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
                     <div className='post-section'>
                         <ProductCardDescription
                             id={this.state.post.id}
+                            userId={this.state.user.id}
+                            productImage={this.state.post.image}
                             title={this.state.post.title}
                             amount={this.state.post.price}
                             description={this.state.post.description}
                             isFavorite={this.state.post.isFavorite}
+                            Delete={this.deletePost}
                         />
                         <ProductOwnerCard 
                             id={this.state.user.id} 
@@ -245,6 +288,7 @@ class Post extends React.Component<RouteChildrenProps<TParams>, IPostState, IPos
                         />
                     </div>
                 </section>
+                { this.state.message && <NotificationPopUp isError={this.state.isError} msg={this.state.message} close={() => this.setState({ message: '' })} /> }
             </main>
         )
     }

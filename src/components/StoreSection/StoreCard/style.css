@@ -8,6 +8,7 @@
     justify-content: center;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.8);
+    transition: 0.3s ease;
 }
 
 .store-card img {
@@ -19,8 +20,13 @@
     transition: 0.3s;
 }
 
+.store-card:hover {
+    border-bottom: solid 2px #3483fa;
+}
+
 .store-card:hover h4 {
     opacity: 1;
     margin-top: 10px;
 }
+
 

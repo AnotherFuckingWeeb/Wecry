@@ -3,6 +3,7 @@
     justify-content: space-between;
     margin-top: 50px;
     padding-left: 500px;
+    position: relative;
 }
 
 .profile-posts-container {

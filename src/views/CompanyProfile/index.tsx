@@ -6,8 +6,11 @@ import { ICompanyProfileState } from './CompanyProfileStateInterface'
 import { SearchBar } from '../../components/Navbars/SearchBar'
 import { CompanyInfoCard } from '../../components/CompanyInfoCard'
 import { CompanyWallpaper } from '../../components/CompanyWallpaper' 
-import './style.css'
 import { ProductCard } from '../../components/ProductCard'
+import { Loading } from '../../components/Loading'
+import { NotificationPopUp } from '../../components/NotificationPopUp'
+import { User } from '../../utils/user'
+import './style.css'
 
 type TParams = {
     cid: string;
@@ -15,6 +18,8 @@ type TParams = {
 
 class CompanyProfile extends React.Component<RouteChildrenProps<TParams>, ICompanyProfileState, ICompanyProfileProps> {
     
+    private user: User = new User();
+
     constructor(props: RouteChildrenProps<TParams>) {
         super(props);
         
@@ -26,12 +31,13 @@ class CompanyProfile extends React.Component<RouteChildrenProps<TParams>, ICompa
                 name: '',
                 description: ''
             },
-
-            posts: []
+            posts: [],
+            loading: false,
+            isError: false,
+            message: ''
         }
     } 
     
-
     private getCompanyData = async () : Promise<void> => {
         try {
             const cid = this.props.match?.params.cid;
@@ -64,6 +70,42 @@ class CompanyProfile extends React.Component<RouteChildrenProps<TParams>, ICompa
         }
     }
 
+    private deleteCompany = async () : Promise<any> => {
+        const url = `http://localhost:4000/companyprofile/${this.user.Id}`;
+
+        const request = await fetch(url, {
+            method: 'DELETE',
+        });
+
+        return request.json();
+    }
+
+    private handleDelete = async () : Promise<void> => {
+        try {
+            this.setState({ loading: true })
+
+            const response = await this.deleteCompany();
+            
+            this.setState({
+                message: response.msg,
+                loading: false
+            })
+        
+            this.user.SignOut();
+            window.location.href = '/'
+        } 
+        
+        catch (error) {
+            this.setState({
+                isError: true,
+                message: 'Something went wrong'
+            })
+        }
+
+        this.setState({
+            loading: false
+        })
+    }
 
     async componentDidMount() {
         await this.getCompanyData();
@@ -79,8 +121,9 @@ class CompanyProfile extends React.Component<RouteChildrenProps<TParams>, ICompa
                 <SearchBar/>
                 <CompanyWallpaper wallpaper={this.state.company.wallpaper} />
                 <div className='company-profile-main-container'>
+                    <Loading isLoading={this.state.loading} />
                     <div className='company-info-card-container' >
-                        <CompanyInfoCard id={this.state.company.id} logo={this.state.company.logo} name={this.state.company.name} description={this.state.company.description} />
+                        <CompanyInfoCard id={this.state.company.id} logo={this.state.company.logo} name={this.state.company.name} description={this.state.company.description} Delete={this.handleDelete} />
                     </div>
                     <div className='company-profile-products-container' >
                         {
@@ -92,6 +135,7 @@ class CompanyProfile extends React.Component<RouteChildrenProps<TParams>, ICompa
                         }
                     </div>
                 </div>
+                { this.state.message && <NotificationPopUp msg={this.state.message} isError={this.state.isError} close={() => this.setState({ message: '' })} /> }
             </main>
         )
     } 

@@ -45,7 +45,7 @@ export const SearchBar = () : JSX.Element => {
                 <FontAwesomeIcon color={'rgba(0, 0, 0, 0.5)'} icon={faSearch} />
             </div>
             <div>
-                {  user.Id ? <UserInfo profileImage={user.ProfileImage} username={user.Fullname} onClick={ShowPanel} /> : <SignInButton/> }
+                { user.Id ? <UserInfo profileImage={user.ProfileImage} username={user.Fullname} onClick={ShowPanel} /> : <SignInButton/> }
                 { showUserPanelMenu && <UserPanelMenu/> }
             </div>
         </div>

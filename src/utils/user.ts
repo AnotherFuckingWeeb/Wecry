@@ -6,14 +6,13 @@ export class User {
     private _id: number = this.cookies.get('id');
     private _wallpaper: string = this.cookies.get('wallpaper');
     private _profileImage: string = this.cookies.get('profileImage');
-    private _fistname: string = this.cookies.get('firstname');
+    private _firstname: string = this.cookies.get('firstname');
     private _lastname: string = this.cookies.get('lastname');
     private _description: string = this.cookies.get('description');
-    private _fullname: string = `${this.Firstname} ${this.Lastname}`;
     private _email: string = this.cookies.get('email');
     private _country: string = this.cookies.get('country');
     private _phonenumber: string = this.cookies.get('phonenumber');
-    private _isCompany: boolean = this.cookies.get('isCompany');
+    private _isCompany: number = parseInt(this.cookies.get('isCompany'));
 
     public get Id() : number  {
         return this._id;
@@ -28,7 +27,7 @@ export class User {
     }
 
     public get Firstname() : string {
-        return this._fistname;
+        return this._firstname;
     }
 
     public get Lastname() : string {
@@ -40,7 +39,11 @@ export class User {
     }
 
     public get Fullname() : string {
-        return this._fullname;
+        if (this.Lastname === undefined) {
+            return this._firstname;
+        }
+
+        return `${this._firstname} ${this._lastname}`;
     }
 
     public get Email() : string {
@@ -56,7 +59,7 @@ export class User {
     }
 
     public get isCompany() : boolean {
-        return this._isCompany;
+        return this._isCompany === 1;
     }
 
     public GetWallpaper() : string {

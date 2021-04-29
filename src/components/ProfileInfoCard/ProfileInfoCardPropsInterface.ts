@@ -4,5 +4,6 @@ export interface IProfileInfoCardProps {
     name: string;
     lastname: string;
     email: string,
-    country: string
+    country: string,
+    Delete: () => void;
 }

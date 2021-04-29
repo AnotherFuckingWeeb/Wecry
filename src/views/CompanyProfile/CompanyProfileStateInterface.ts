@@ -8,4 +8,7 @@ export interface ICompanyProfileState {
     },
 
     posts: [];
+    loading: boolean;
+    isError: boolean;
+    message: string;
 }

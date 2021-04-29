@@ -3,4 +3,5 @@ export interface ICompanyInfoCardProps {
     logo: string;
     name: string;
     description: string;
+    Delete: () => void;
 }

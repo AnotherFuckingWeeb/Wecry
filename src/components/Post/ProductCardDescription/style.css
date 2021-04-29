@@ -27,3 +27,12 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.icon {
+    transition: ease 0.3s;
+    margin: 5px;
+}
+
+.icon:hover {
+    color: red;
+}

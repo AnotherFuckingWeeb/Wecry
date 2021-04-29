@@ -28,21 +28,6 @@ class CategoryStores extends React.Component<RouteChildrenProps<TParams>, ICateg
         }
     }
 
-
-    async componentDidMount() {
-
-        this.setState({
-            loading: true
-        });
-
-        await this.getStoresByCategory();
-
-        this.setState({
-            loading: false
-        });
-
-    }
-
     private getStoresByCategory = async () : Promise<void> => {
         try {
             const url = `http://localhost:4000/stores/category=${this.state.category}`;
@@ -66,6 +51,20 @@ class CategoryStores extends React.Component<RouteChildrenProps<TParams>, ICateg
                 message: 'Something went wrong'
             })
         }
+    }
+
+    async componentDidMount() {
+
+        this.setState({
+            loading: true
+        });
+
+        await this.getStoresByCategory();
+
+        this.setState({
+            loading: false
+        });
+
     }
 
     render() {
